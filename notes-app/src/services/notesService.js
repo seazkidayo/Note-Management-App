@@ -1,27 +1,27 @@
-// src/services/notesService.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/notes'; // Change port if necessary
+// Define the base URL for the API
+const API_URL = 'http://192.168.59.102:3477/api/notes';
 
-// Fetch all notes
+// Get all notes
 export const getNotes = async () => {
   try {
     const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {
     console.error('Error fetching notes:', error);
-    return [];
+    throw error;
   }
 };
 
-// Fetch note by ID
+// Get a note by ID
 export const getNoteById = async (id) => {
   try {
     const response = await axios.get(`${API_URL}/${id}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching note:', error);
-    return null;
+    throw error;
   }
 };
 
@@ -32,7 +32,7 @@ export const createNote = async (note) => {
     return response.data;
   } catch (error) {
     console.error('Error creating note:', error);
-    return null;
+    throw error;
   }
 };
 
@@ -43,15 +43,16 @@ export const updateNote = async (id, note) => {
     return response.data;
   } catch (error) {
     console.error('Error updating note:', error);
-    return null;
+    throw error;
   }
 };
 
-// Delete a note
+// Delete a note by ID
 export const deleteNote = async (id) => {
   try {
     await axios.delete(`${API_URL}/${id}`);
   } catch (error) {
     console.error('Error deleting note:', error);
+    throw error;
   }
 };
