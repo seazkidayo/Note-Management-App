@@ -1,0 +1,16 @@
+@Note_Management_App_HostAddress = http://localhost:5175
+
+GET {{Note_Management_App_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{Note_Management_App_HostAddress}}/api/notes HTTP/1.1
+Content-Type: application/json
+
+{
+  "Title": "My New Note",
+  "Content": "This is the content of my new note.",
+  "CreatedAt": "2025-12-31T00:00:00",
+  "UpdatedAt": "2025-12-31T00:00:00"
+}
