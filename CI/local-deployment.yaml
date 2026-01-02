@@ -12,12 +12,12 @@ steps:
 
 - script: |
     git fetch origin front-end
-    git worktree add ./front-end origin/front-end
+    git worktree add -f ./front-end origin/front-end
   displayName: Fetch front-end branch
 
 - script: |
     git fetch origin back-end
-    git worktree add ./back-end origin/back-end
+    git worktree add -f ./back-end origin/back-end
   displayName: Fetch back-end branch
 
 - script: |
