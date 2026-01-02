@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: react-app-env
 data:
-  REACT_APP_API_URL: "http://dotnet-api:80/api/notes"
+  REACT_APP_API_URL: "http://dotnet-api:8080/api/notes"
