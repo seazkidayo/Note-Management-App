@@ -1,0 +1,36 @@
+trigger:
+- main
+- front-end
+- back-end
+
+pool:
+  name: local-minikube
+
+steps:
+- checkout: self
+  path: source-code
+
+- script: |
+    git fetch origin front-end
+    git checkout origin/front-end -- front-end
+  displayName: Fetch front-end branch
+
+- script: |
+    git fetch origin back-end
+    git checkout origin/back-end -- back-end
+  displayName: Fetch back-end branch
+
+- script: |
+    git fetch origin main
+    git checkout origin/main -- k8s
+  displayName: Fetch k8s manifests from main
+
+- script: |
+    eval $(minikube docker-env)
+    docker build -t dotnet-api:latest ./back-end
+    docker build -t react-app:latest ./front-end/notes-app
+  displayName: Build Docker images in Minikube
+
+- script: |
+    kubectl apply -f ./k8s/
+  displayName: Deploy to Minikube
