@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Define the base URL for the API
-const API_URL = 'http://192.168.59.102:3477/api/notes';
+const API_URL = 'http://dotnet-api/api/notes';
 
 // Get all notes
 export const getNotes = async () => {
