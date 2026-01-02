@@ -105,7 +105,7 @@ const App = () => {
 
       {/* Display Notes */}
       <div>
-        <h2>All Note</h2>
+        <h2>All Notes</h2>
         <ul>
           {notes.map(note => (
             <li key={note.id}>
