@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Define the base URL for the API
-const API_URL = 'http://dotnet-api/api/notes';
+const API_URL = process.env.REACT_APP_API_URL;
 
 // Get all notes
 export const getNotes = async () => {
