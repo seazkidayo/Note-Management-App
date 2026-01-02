@@ -4,7 +4,7 @@ trigger:
 - back-end
 
 pool:
-  name: local-minikube
+  name: Local Host
 
 steps:
 - checkout: self
